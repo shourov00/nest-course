@@ -1,5 +1,7 @@
 import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
 import { User } from './src/entities/user.entity';
+import { Topic } from './src/entities/topic.entity';
+import { Comment } from './src/entities/comment.entity';
 
 const config: PostgresConnectionOptions = {
   type: 'postgres',
@@ -8,7 +10,7 @@ const config: PostgresConnectionOptions = {
   port: 5430, // port running on docker for postgresSql
   username: 'postgres',
   password: 'postgres',
-  entities: [User],
+  entities: [User, Topic, Comment],
   synchronize: true,
 };
 
