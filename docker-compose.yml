@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - "5430:5432" # give a different port so that our local postgres service not execute
+
+    environment:
+      - POSTGRES_DB=testDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
